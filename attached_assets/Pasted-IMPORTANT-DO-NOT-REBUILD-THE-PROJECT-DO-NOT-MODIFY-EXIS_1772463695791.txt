@@ -1,0 +1,64 @@
+IMPORTANT: DO NOT REBUILD THE PROJECT.
+DO NOT MODIFY EXISTING CORE LOGIC.
+ONLY EXTEND CURRENT HABEAT STRUCTURE WITH MINIMAL CHANGES.
+KEEP ALL EXISTING FEATURES WORKING.
+
+GOAL: Improve Habeat into a premium, sellable SaaS-ready web app with minimal code additions.
+
+1️⃣ PROFILE SYSTEM ENHANCEMENT
+- Add profile section inside existing dashboard.
+- Allow user to upload profile photo from local gallery.
+- Store image URL in database (or base64 if simple storage).
+- Show circular avatar in navbar.
+- Add editable: name + bio.
+- Keep UI consistent with current theme.
+
+2️⃣ SUBSCRIPTION MODEL (STRUCTURE READY)
+- Add subscription architecture (monthly + yearly).
+- Do NOT break existing one-time payment logic.
+- Add role field in user model: free | pro.
+- Lock premium features using middleware.
+- Create upgrade modal (clean, modern).
+- Keep backend scalable for Stripe or Razorpay integration later.
+
+3️⃣ FIX MAJOR MARKET PROBLEMS OF HABIT APPS
+Improve UX by solving these issues:
+
+- Overcomplicated UI → keep minimal.
+- No visual progress motivation → add animated progress ring.
+- No streak psychology → add streak counter with flame icon.
+- Poor retention → add subtle micro-animations.
+- No personalization → allow theme accent color selection.
+- No emotional feedback → show motivational quotes after completion.
+- Too much friction → 1-click habit completion.
+
+4️⃣ PREMIUM UI IMPROVEMENT
+- Keep existing design.
+- Upgrade colors to soft premium gradient:
+  dark navy + muted violet + soft cyan highlights.
+- Smooth transitions (200-300ms).
+- Rounded 16px cards.
+- Soft shadow, not harsh.
+- Mobile responsive.
+
+5️⃣ SELLABLE STRUCTURE
+- Clean folder structure.
+- Add README with:
+  setup steps
+  env variables list
+  payment integration guide placeholder
+- Add .env.example file.
+- Remove hardcoded secrets.
+- Keep code readable and modular.
+
+6️⃣ PERFORMANCE
+- No heavy new libraries.
+- No unnecessary dependencies.
+- Keep build lightweight.
+- Avoid rewriting pages.
+
+7️⃣ FINAL RULE
+This is a production-ready enhancement.
+DO NOT refactor entire app.
+ONLY extend and polish.
+Keep changes minimal but impactful.

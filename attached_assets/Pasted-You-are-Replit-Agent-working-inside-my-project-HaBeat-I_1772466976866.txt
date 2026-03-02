@@ -1,0 +1,191 @@
+You are Replit Agent working inside my project “HaBeat”.
+
+I have THREE goals in ONE run:
+(A) Upgrade UI to premium level (fix white blocks, improve themes, animations)
+(B) Make full app mobile-scrollable and smooth for Android (web app behavior)
+(C) Clean repo + push ALL files to GitHub + make Vercel-ready + VS Code buyer-ready
+
+IMPORTANT:
+- DO NOT rebuild from scratch.
+- DO NOT remove core features.
+- Keep layout and logic intact.
+- Make targeted, professional improvements only.
+
+====================================================
+A) UI UPGRADE + 10 THEMES + ANIMATIONS
+====================================================
+
+1) Fix White / Flat Look Problem
+- Replace all pure white surfaces with layered dark glass surfaces:
+  - bg-white/5 to bg-white/10
+  - border-white/10
+  - backdrop-blur-xl
+- Habit grid tiles must NOT be white by default.
+  - Default: dim neutral (bg-white/6 border-white/10)
+  - Completed: theme accent tinted + subtle glow
+  - Missed: subdued (bg-white/3 opacity-60)
+- Maintain proper contrast and readability.
+
+2) Add Theme System (CSS Variables Based, NOT dynamic tailwind strings)
+Create a clean theme object system using CSS variables.
+
+Add 11 themes total:
+
+DEFAULT:
+0. Classic Dark (balanced clean professional default)
+
+PREMIUM THEMES:
+1. Neon Noir
+2. Arctic Pulse
+3. Lavender Haze
+4. Cyber Teal
+5. Ember Night
+6. Midnight Sakura
+7. Titanium Frost
+8. Ocean Nebula
+9. Mocha Glow
+10. Prism Dusk
+
+Each theme must define:
+- Background gradient
+- Surface tint
+- Accent color
+- Done-tile glow color
+- Button/chip color
+- Subtle shadow tone
+
+Theme must:
+- Switch from profile/settings dropdown
+- Persist in localStorage
+- Apply via CSS variables at root
+- Avoid Tailwind dynamic class issues
+
+3) Theme-Based Smooth Micro Animations (Stylish, Not Overkill)
+
+Add subtle “premium” animations:
+
+- When theme changes → smooth 300ms background gradient transition
+- Habit completion → small scale + glow pulse (200ms)
+- Buttons → soft hover elevation + glow
+- Progress ring → smooth fill animation
+- Cards → slight fade-in / slide-up on load
+
+For each theme:
+- Add a small subtle animated background element:
+  - Example:
+    Neon Noir → moving neon gradient glow
+    Arctic Pulse → soft flowing light wave
+    Ember Night → subtle floating warm particles
+    Ocean Nebula → slow blurred moving gradient
+- Keep animations lightweight and performance-friendly.
+- Use CSS animations or minimal JS.
+- Must not lag on Android.
+
+Animations must feel premium, not childish.
+
+====================================================
+B) MOBILE / ANDROID WEB APP OPTIMIZATION
+====================================================
+
+1) Full App Must Be Scrollable
+- Entire dashboard must scroll vertically on smaller screens.
+- No fixed height sections blocking scroll.
+- Use overflow-y-auto properly.
+- Ensure habit grid wraps correctly on small screens.
+
+2) Android-Friendly Behavior
+- Smooth scrolling (no scroll jump)
+- Remove horizontal overflow
+- Ensure responsive padding
+- Add touch-friendly spacing
+- Buttons minimum 40px height
+- No layout breaking below 390px width
+
+3) Improve Responsiveness
+- Use responsive Tailwind utilities properly.
+- Ensure layout adapts cleanly for:
+  - Desktop
+  - Tablet
+  - Android phone screens
+
+====================================================
+C) CLEAN CODE + PUSH ALL FILES + VERCEL READY
+====================================================
+
+After UI + mobile improvements are stable:
+
+1) GIT SETUP
+- Ensure all necessary files tracked.
+- Add proper .gitignore:
+  node_modules
+  .next / dist
+  .env
+  .vercel
+  logs
+- Remove any secrets from repo.
+- Create commit:
+  "feat: premium themes + animations + vercel ready setup"
+- Push all files to GitHub main branch.
+
+2) CODE QUALITY
+- Add ESLint + Prettier minimal config.
+- Add scripts:
+  dev
+  build
+  start
+  lint
+  format
+- Remove unused imports.
+- Remove unnecessary console logs.
+- Keep structure clean and professional.
+
+3) ENV HANDLING
+- Create .env.example listing all required keys.
+- Ensure app throws clear error if env missing.
+- Ensure build works without crashing.
+
+4) VERCEL READY
+- Detect project type correctly.
+- Ensure npm run build succeeds.
+- Configure correct:
+  Install Command
+  Build Command
+  Output Directory
+- Add vercel.json only if required.
+- Do not introduce unnecessary complexity.
+
+5) BUYER FRIENDLY
+- Add professional README:
+  - What HaBeat is
+  - Features
+  - Theme system
+  - Setup steps
+  - Deploy to Vercel steps
+  - Troubleshooting
+- Add MIT LICENSE.
+
+====================================================
+FINAL VERIFICATION
+====================================================
+
+Before finishing:
+- Run npm install
+- Run npm run lint
+- Run npm run build
+- Confirm theme switching works
+- Confirm animations work smoothly
+- Confirm scrolling works on mobile view
+- Confirm repo pushed successfully
+
+Then give me:
+- GitHub push confirmation
+- Vercel deploy instructions
+- Required env vars list
+- Any warnings remaining
+
+Start by:
+1) Replacing white surfaces
+2) Implementing theme system with 11 themes
+3) Adding subtle theme-based animations
+4) Making app fully scrollable
+Then proceed to repo + deployment cleanup.
