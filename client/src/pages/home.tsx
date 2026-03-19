@@ -922,6 +922,7 @@ export default function Home() {
                 className="hb-btn-glow w-full h-14 rounded-xl text-white font-bold transition-all duration-150 flex items-center justify-center gap-2 relative z-10 active:scale-95 cursor-pointer select-none"
                 style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }}
                 onClick={() => {
+                  window.open('https://habeat-a-clean-protocols-tracking.lemonsqueezy.com/checkout/buy/f13becb0-9b4f-4516-b501-4225b98111dc', '_blank');
                   setIsUpgradeOpen(false);
                 }}
                 data-testid="button-subscribe"
@@ -929,7 +930,7 @@ export default function Home() {
                 <Sparkles className="w-4 h-4" />
                 Start 7-Day Free Trial
               </button>
-              <p className="text-[10px] text-center leading-relaxed" style={{ color: "var(--hb-text-muted)" }}>No charge for 7 days. Cancel anytime. Payment integration coming soon.</p>
+              <p className="text-[10px] text-center leading-relaxed" style={{ color: "var(--hb-text-muted)" }}>No charge for 7 days. Cancel anytime.</p>
             </div>
           </DialogContent>
         </Dialog>
