@@ -79,7 +79,7 @@ export async function registerRoutes(
       const status = data?.status;
       
       if (email && status === "active") {
-        await storage.updateProfile({ role: "pro", email });
+        await storage.updateProfile({ role: "pro" });
       }
     }
     
@@ -87,7 +87,7 @@ export async function registerRoutes(
       const data = req.body?.data?.attributes;
       const email = data?.user_email;
       if (email) {
-        await storage.updateProfile({ role: "free", email });
+        await storage.updateProfile({ role: "free"  });
       }
     }
     
