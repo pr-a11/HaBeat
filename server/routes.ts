@@ -105,7 +105,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
     const updates: Record<string, string> = {};
     if (typeof name === "string") updates.name = name.slice(0, 100);
     if (typeof bio === "string") updates.bio = bio.slice(0, 500);
-    if (typeof avatarUrl === "string") updates.avatarUrl = avatarUrl.slice(0, 5000);
+    if (typeof avatarUrl === "string") updates.avatarUrl = avatarUrl.slice(0, 500000);
     if (typeof accentColor === "string") updates.accentColor = accentColor.slice(0, 50);
     const profile = await storage.updateProfile(req.userId, updates);
     res.json(profile);
