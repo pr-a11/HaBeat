@@ -69,6 +69,29 @@ export async function registerRoutes(
     const profile = await storage.updateProfile(updates);
     res.json(profile);
   }));
-
+// Lemon Squeezy Webhook
+  app.post("/api/webhook/lemonsqueezy", asyncHandler(async (req, res) => {
+    const event = req.headers["x-event-name"] as string;
+    
+    if (event === "subscription_created" || event === "subscription_updated") {
+      const data = req.body?.data?.attributes;
+      const email = data?.user_email;
+      const status = data?.status;
+      
+      if (email && status === "active") {
+        await storage.updateProfile({ role: "pro", email });
+      }
+    }
+    
+    if (event === "subscription_cancelled" || event === "subscription_expired") {
+      const data = req.body?.data?.attributes;
+      const email = data?.user_email;
+      if (email) {
+        await storage.updateProfile({ role: "free", email });
+      }
+    }
+    
+    res.json({ received: true });
+  }));
   return httpServer;
 }
