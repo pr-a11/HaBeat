@@ -60,7 +60,61 @@ app.use((req, res, next) => {
   next();
 });
 
+async function runMigrations() {
+  try {
+    const { db } = await import("./db");
+    const { sql } = await import("drizzle-orm");
+    
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        email TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        created_at TEXT NOT NULL DEFAULT now()
+      )
+    `);
+
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS habits (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER NOT NULL DEFAULT 1,
+        name TEXT NOT NULL,
+        category TEXT NOT NULL,
+        target INTEGER NOT NULL,
+        icon TEXT NOT NULL,
+        color TEXT NOT NULL,
+        completed_days JSONB NOT NULL DEFAULT '{}'
+      )
+    `);
+
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS profiles (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER NOT NULL DEFAULT 1,
+        name TEXT NOT NULL DEFAULT 'User',
+        bio TEXT NOT NULL DEFAULT '',
+        avatar_url TEXT NOT NULL DEFAULT '',
+        role TEXT NOT NULL DEFAULT 'free',
+        accent_color TEXT NOT NULL DEFAULT 'classic-dark'
+      )
+    `);
+
+    await db.execute(sql`
+      ALTER TABLE habits ADD COLUMN IF NOT EXISTS user_id INTEGER NOT NULL DEFAULT 1
+    `);
+
+    await db.execute(sql`
+      ALTER TABLE profiles ADD COLUMN IF NOT EXISTS user_id INTEGER NOT NULL DEFAULT 1
+    `);
+
+    console.log("✅ Database migrations complete!");
+  } catch (err) {
+    console.error("Migration error:", err);
+  }
+}
+
 (async () => {
+  await runMigrations();
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
