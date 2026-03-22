@@ -6,6 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import AuthPage from "@/pages/auth";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";  // ADD
+import TermsOfService from "@/pages/TermsOfService"; // ADD
+import RefundPolicy from "@/pages/RefundPolicy";     // ADD
 
 function ProtectedRoute({ component: Component }: { component: React.ComponentType }) {
   const token = localStorage.getItem("hb-token");
@@ -17,6 +20,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/auth" component={AuthPage} />
+      <Route path="/privacy" component={PrivacyPolicy} />   {/* ADD */}
+      <Route path="/terms" component={TermsOfService} />    {/* ADD */}
+      <Route path="/refund" component={RefundPolicy} />     {/* ADD */}
       <Route path="/" component={() => <ProtectedRoute component={Home} />} />
       <Route component={NotFound} />
     </Switch>
